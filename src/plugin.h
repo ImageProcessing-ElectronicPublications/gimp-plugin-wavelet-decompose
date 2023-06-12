@@ -1,9 +1,9 @@
-/* 
+/*
  * Wavelet decompose GIMP plugin
- * 
+ *
  * plugin.h
  * Copyright 2008 by Marco Rossini
- * 
+ *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2+
  * as published by the Free Software Foundation.
@@ -32,24 +32,24 @@ typedef signed short wdsint;
 
 void query (void);
 void run (const gchar * name, gint nparams, const GimpParam * param,
-	  gint * nreturn_vals, GimpParam ** return_vals);
+          gint * nreturn_vals, GimpParam ** return_vals);
 void wavelet_decompose (guint32 image, guint32 layer, wdsint * img[3],
-			unsigned int width, unsigned int height,
-			unsigned int channels, unsigned int scales);
+                        unsigned int width, unsigned int height,
+                        unsigned int channels, unsigned int scales);
 void decompose (gint32 image, GimpDrawable * drawable, unsigned int scales);
 gboolean user_interface (GimpDrawable * drawable, unsigned int maxscale);
 void add_layer (gint32 image, gint32 parent, wdsint ** img, const char *name,
-		GimpLayerModeEffects mode);
+                GimpLayerModeEffects mode);
 
 extern GimpPlugInInfo PLUG_IN_INFO;
 
 typedef struct
 {
-  unsigned int scales;
-  unsigned int new_image;
-  unsigned int add_alpha;
-  unsigned int add_mask;
-  GimpLayerModeEffects layer_modes;
+    unsigned int scales;
+    unsigned int new_image;
+    unsigned int add_alpha;
+    unsigned int add_mask;
+    GimpLayerModeEffects layer_modes;
 } wavelet_settings;
 
 extern wavelet_settings settings;
